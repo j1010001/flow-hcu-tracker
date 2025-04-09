@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HCU Reset Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>HCU Reset Tracker</h2>
+        <div class="top-row">
+            <div class="network-selector">
+                <select id="networkSelect" onchange="updateNetwork()">
+                    <option value="mainnet">Mainnet</option>
+                    <option value="testnet">Testnet</option>
+                </select>
+            </div>
+            <div class="current-height-section">
+                <button onclick="showCurrentHeight()">Get Current Height</button>
+                <span id="currentHeight" class="height-display"></span>
+                <i class="fas fa-copy copy-icon" onclick="copyHeight()" title="Copy height"></i>
+            </div>
+        </div>
+        <div class="input-section">
+            <span>Target Height:</span>
+            <input type="number" id="inputValue" placeholder="Enter target height">
+            <button onclick="startTracking()">Start Tracking</button>
+            <button onclick="stopTracking()">Stop Tracking</button>
+        </div>
+        <div class="progress-section">
+            <span>Progress:</span>
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+        </div>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Make functions available globally for onclick handlers
+        window.updateNetwork = updateNetwork;
+        window.showCurrentHeight = showCurrentHeight;
+        window.copyHeight = copyHeight;
+        window.startTracking = startTracking;
+        window.stopTracking = stopTracking;
+    </script>
+</body>
+</html> 
